@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
 import { Segment, Grid, Icon } from 'semantic-ui-react'
 
-export const EntryLine = ({ description, value, isExpense = false }) => {
+export const EntryLine = ({
+    entry: { id, description, value, isExpense = false },
+}) => {
     return (
         <Segment color={isExpense ? 'red' : 'green'}>
             <Grid columns={3} textAlign="right">
@@ -23,7 +25,5 @@ export const EntryLine = ({ description, value, isExpense = false }) => {
 }
 
 EntryLine.propTypes = {
-    description: PropTypes.string,
-    value: PropTypes.number,
-    isExpense: PropTypes.bool,
+    entry: PropTypes.object,
 }
