@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css'
 import { MainHeader } from './components/MainHeader'
 import { NewEntryForm } from './components/NewEntryForm'
 import { DisplayBalance } from './components/DisplayBalance'
+import { DisplayBalances } from './components/DisplayBalances'
 
 const App = () => {
     return (
@@ -15,28 +16,7 @@ const App = () => {
                 value={2300.99}
             />
 
-            <Segment textAlign="center">
-                <Grid columns={2} divided>
-                    <Grid.Row>
-                        <Grid.Column>
-                            <DisplayBalance
-                                color="green"
-                                textAlign="left"
-                                label="Income:"
-                                value={1500.99}
-                            />
-                        </Grid.Column>
-                        <Grid.Column>
-                            <DisplayBalance
-                                color="red"
-                                textAlign="left"
-                                label="Expenses:"
-                                value={982.99}
-                            />
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Segment>
+            <DisplayBalances />
 
             <MainHeader title="History" type="h3" />
 
