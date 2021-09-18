@@ -1,5 +1,7 @@
 import {
+    Button,
     Container,
+    Form,
     Grid,
     Header,
     Icon,
@@ -77,6 +79,31 @@ function App() {
                     </Grid.Row>
                 </Grid>
             </Segment>
+
+            <Header as="h3">Add new transaction</Header>
+
+            <Form unstackable>
+                <Form.Group>
+                    <Form.Input
+                        icon="tag"
+                        width={12}
+                        label="Description"
+                        placeholder="new shinny thing"
+                    />
+                    <Form.Input
+                        icon="euro"
+                        iconPosition="left"
+                        width={4}
+                        label="Value"
+                        placeholder="100"
+                    />
+                </Form.Group>
+                <Button.Group style={{ marginTop: 20 }}>
+                    <Button>Cancel</Button>
+                    <Button.Or />
+                    <Button primary>OK</Button>
+                </Button.Group>
+            </Form>
         </Container>
     )
 }
