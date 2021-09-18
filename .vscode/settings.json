@@ -1,0 +1,34 @@
+{
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.formatOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "cSpell.userWords": ["boloorchi", "kavoos"],
+    "javascript.preferences.quoteStyle": "single",
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+    "workbench.iconTheme": "vscode-icons",
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    }
+}

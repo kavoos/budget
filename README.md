@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Dependencies
+
+Setup ESLint for React with Prettier, pre-commit and VSCode:
+https://www.inkoop.io/blog/setup-eslint-for-react-with-prettier-pre-commit-and-vscode/
+
+```
+npm install semantic-ui-react semantic-ui-css
+```
