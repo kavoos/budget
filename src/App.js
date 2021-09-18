@@ -1,15 +1,8 @@
-import {
-    Container,
-    Form,
-    Grid,
-    Icon,
-    Segment,
-    Statistic,
-} from 'semantic-ui-react'
+import { Container, Grid, Icon, Segment, Statistic } from 'semantic-ui-react'
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 import { MainHeader } from './components/MainHeader'
-import { ButtonSaveOrCancel } from './components/ButtonSaveOrCancel'
+import { NewEntryForm } from './components/NewEntryForm'
 
 const App = () => {
     return (
@@ -81,24 +74,7 @@ const App = () => {
 
             <MainHeader title="Add new transaction" type="h3" />
 
-            <Form unstackable>
-                <Form.Group>
-                    <Form.Input
-                        icon="tag"
-                        width={12}
-                        label="Description"
-                        placeholder="new shinny thing"
-                    />
-                    <Form.Input
-                        icon="euro"
-                        iconPosition="left"
-                        width={4}
-                        label="Value"
-                        placeholder="100"
-                    />
-                </Form.Group>
-                <ButtonSaveOrCancel />
-            </Form>
+            <NewEntryForm />
         </Container>
     )
 }
