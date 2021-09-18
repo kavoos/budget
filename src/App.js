@@ -1,36 +1,38 @@
-import { Container, Grid, Icon, Segment, Statistic } from 'semantic-ui-react'
+import { Container, Grid, Icon, Segment } from 'semantic-ui-react'
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 import { MainHeader } from './components/MainHeader'
 import { NewEntryForm } from './components/NewEntryForm'
+import { DisplayBalance } from './components/DisplayBalance'
 
 const App = () => {
     return (
         <Container>
             <MainHeader title="Budget" />
-            <Statistic size="small">
-                <Statistic.Label>Your balance:</Statistic.Label>
-                <Statistic.Value>2,500.53</Statistic.Value>
-            </Statistic>
+            <DisplayBalance
+                size="small"
+                label="Your balance:"
+                value={2300.99}
+            />
 
             <Segment textAlign="center">
                 <Grid columns={2} divided>
                     <Grid.Row>
                         <Grid.Column>
-                            <Statistic size="tiny" color="green">
-                                <Statistic.Label style={{ textAlign: 'left' }}>
-                                    Incoming:
-                                </Statistic.Label>
-                                <Statistic.Value>1,500.54</Statistic.Value>
-                            </Statistic>
+                            <DisplayBalance
+                                color="green"
+                                textAlign="left"
+                                label="Income:"
+                                value={1500.99}
+                            />
                         </Grid.Column>
                         <Grid.Column>
-                            <Statistic size="tiny" color="red">
-                                <Statistic.Label style={{ textAlign: 'left' }}>
-                                    Expenses:
-                                </Statistic.Label>
-                                <Statistic.Value>892.54</Statistic.Value>
-                            </Statistic>
+                            <DisplayBalance
+                                color="red"
+                                textAlign="left"
+                                label="Expenses:"
+                                value={982.99}
+                            />
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
