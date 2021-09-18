@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types'
 import { Statistic } from 'semantic-ui-react'
 
-export const DisplayBalance = (props) => {
-    const { size = 'tiny', color = 'black', textAlign, label, value } = props
-
+export const DisplayBalance = ({
+    size = 'tiny',
+    color = 'black',
+    textAlign,
+    label,
+    value,
+}) => {
     return (
         <Statistic size={size} color={color} style={{ textAlign }}>
             <Statistic.Label>{label}</Statistic.Label>

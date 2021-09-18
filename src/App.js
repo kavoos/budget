@@ -1,10 +1,11 @@
-import { Container, Grid, Icon, Segment } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 import { MainHeader } from './components/MainHeader'
 import { NewEntryForm } from './components/NewEntryForm'
 import { DisplayBalance } from './components/DisplayBalance'
 import { DisplayBalances } from './components/DisplayBalances'
+import { EntryLine } from './components/EntryLine'
 
 const App = () => {
     return (
@@ -19,40 +20,9 @@ const App = () => {
             <DisplayBalances />
 
             <MainHeader title="History" type="h3" />
-
-            <Segment color="red">
-                <Grid columns={3} textAlign="right">
-                    <Grid.Row>
-                        <Grid.Column width={10} textAlign="left">
-                            Restaurant
-                        </Grid.Column>
-                        <Grid.Column width={3} textAlign="right">
-                            €120.99
-                        </Grid.Column>
-                        <Grid.Column width={3}>
-                            <Icon name="edit" />
-                            <Icon name="trash" />
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Segment>
-
-            <Segment color="green">
-                <Grid columns={3} textAlign="right">
-                    <Grid.Row>
-                        <Grid.Column width={10} textAlign="left">
-                            Restaurant
-                        </Grid.Column>
-                        <Grid.Column width={3} textAlign="right">
-                            €120.99
-                        </Grid.Column>
-                        <Grid.Column width={3}>
-                            <Icon name="edit" />
-                            <Icon name="trash" />
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Segment>
+            <EntryLine description="Something" value="120.99" isExpense />
+            <EntryLine description="Something else" value="13.99" />
+            <EntryLine description="Another something" value="20.99" />
 
             <MainHeader title="Add new transaction" type="h3" />
 
