@@ -1,5 +1,4 @@
 import {
-    Button,
     Container,
     Form,
     Grid,
@@ -10,6 +9,7 @@ import {
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 import { MainHeader } from './components/MainHeader'
+import { ButtonSaveOrCancel } from './components/ButtonSaveOrCancel'
 
 const App = () => {
     return (
@@ -97,11 +97,7 @@ const App = () => {
                         placeholder="100"
                     />
                 </Form.Group>
-                <Button.Group style={{ marginTop: 20 }}>
-                    <Button>Cancel</Button>
-                    <Button.Or />
-                    <Button primary>OK</Button>
-                </Button.Group>
+                <ButtonSaveOrCancel />
             </Form>
         </Container>
     )
