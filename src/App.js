@@ -9,8 +9,12 @@ import { DisplayBalances } from './components/DisplayBalances'
 import { EntryLines } from './components/EntryLines'
 
 const App = () => {
-    // eslint-disable-next-line no-unused-vars
     const [entries, setEntries] = useState(initialEntries)
+
+    const deleteEntry = (id) => {
+        const result = entries.filter((e) => e.id !== id)
+        setEntries(result)
+    }
 
     return (
         <Container>
@@ -24,7 +28,7 @@ const App = () => {
             <DisplayBalances />
 
             <MainHeader title="History" type="h3" />
-            <EntryLines entries={entries} />
+            <EntryLines entries={entries} deleteEntry={deleteEntry} />
 
             <MainHeader title="Add new transaction" type="h3" />
 

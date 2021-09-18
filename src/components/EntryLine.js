@@ -2,7 +2,11 @@ import PropTypes from 'prop-types'
 import { Segment, Grid, Icon } from 'semantic-ui-react'
 
 export const EntryLine = ({
-    entry: { id, description, value, isExpense = false },
+    id,
+    description,
+    value,
+    isExpense = false,
+    deleteEntry,
 }) => {
     return (
         <Segment color={isExpense ? 'red' : 'green'}>
@@ -16,7 +20,11 @@ export const EntryLine = ({
                     </Grid.Column>
                     <Grid.Column width={3}>
                         <Icon name="edit" />
-                        <Icon name="trash" />
+                        <Icon
+                            name="trash"
+                            onClick={() => deleteEntry(id)}
+                            style={{ cursor: 'pointer' }}
+                        />
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
@@ -25,5 +33,9 @@ export const EntryLine = ({
 }
 
 EntryLine.propTypes = {
-    entry: PropTypes.object,
+    id: PropTypes.number,
+    description: PropTypes.string,
+    value: PropTypes.number,
+    isExpense: PropTypes.bool,
+    deleteEntry: PropTypes.func,
 }
