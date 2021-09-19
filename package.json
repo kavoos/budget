@@ -19,6 +19,7 @@
         "web-vitals": "^1.1.2"
     },
     "devDependencies": {
+        "concurrently": "^6.2.1",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-config-standard": "^16.0.3",
@@ -37,7 +38,9 @@
         "eject": "react-scripts eject",
         "lint": "eslint ./",
         "lint-fix": "eslint ./ --fix",
-        "format": "prettier --write \"**/*.{js,jsx,json,md}\""
+        "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+        "backend": "json-server --watch db.json --port 3001",
+        "start:all": "concurrently \"npm start\" \"npm run backend\""
     },
     "eslintConfig": {
         "extends": [

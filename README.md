@@ -93,3 +93,12 @@ npm install uuid
 ```
 npm install redux-devtools-extension
 ```
+
+```
+sudo npm install -g json-server
+export PATH=$PATH:$HOME/.npm-global/bin
+
+json-server --watch db.json --port 3001
+
+npm install -D concurrently
+```
