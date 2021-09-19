@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types'
 import { EntryLine } from './EntryLine'
 
-export const EntryLines = ({ entries, deleteEntry, editEntry }) => {
+export const EntryLines = ({ entries }) => {
     return (
         <>
             {entries.map((e) => (
-                <EntryLine
-                    key={e.id}
-                    {...e}
-                    deleteEntry={deleteEntry}
-                    editEntry={editEntry}
-                />
+                <EntryLine key={e.id} {...e} />
             ))}
         </>
     )
@@ -18,6 +13,4 @@ export const EntryLines = ({ entries, deleteEntry, editEntry }) => {
 
 EntryLines.propTypes = {
     entries: PropTypes.array,
-    deleteEntry: PropTypes.func,
-    editEntry: PropTypes.func,
 }

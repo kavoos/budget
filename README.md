@@ -85,3 +85,11 @@ npm install redux react-redux
 ```
 npm install -D redux-devtools
 ```
+
+```
+npm install uuid
+```
+
+```
+npm install redux-devtools-extension
+```

@@ -6,33 +6,23 @@ import { DisplayBalance } from './components/DisplayBalance'
 import { DisplayBalances } from './components/DisplayBalances'
 import { EntryLines } from './components/EntryLines'
 import { ModalEdit } from './components/ModalEdit'
+import { useSelector } from 'react-redux'
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 
 const App = () => {
-    const [entries, setEntries] = useState(initialEntries)
-    const [description, setDescription] = useState('')
-    const [value, setValue] = useState(0)
-    const [isExpense, setIsExpense] = useState(true)
-    const [isOpen, setIsOpen] = useState(false)
-    const [entryId, setEntryId] = useState()
+    const [entry, setEntry] = useState()
     const [totalIncomes, setTotalIncomes] = useState(0)
     const [totalExpenses, setTotalExpenses] = useState(0)
     const [total, setTotal] = useState(0)
 
+    const { isOpen, id } = useSelector((state) => state.modals)
+    const entries = useSelector((state) => state.entries)
+
     useEffect(() => {
-        if (!isOpen && entryId) {
-            const i = entries.findIndex((e) => e.id === entryId)
-            const newEntries = [...entries]
-
-            newEntries[i].description = description
-            newEntries[i].value = value
-            newEntries[i].isExpense = isExpense
-
-            setEntries(newEntries)
-            resetEntry()
-        }
-    }, [isOpen])
+        const i = entries.findIndex((e) => e.id === id)
+        setEntry(entries[i])
+    }, [isOpen, id])
 
     useEffect(() => {
         let tIncomes = 0
@@ -48,39 +38,6 @@ const App = () => {
         setTotalExpenses(tExpenses)
     }, [entries])
 
-    const deleteEntry = (id) => {
-        const result = entries.filter((e) => e.id !== id)
-        setEntries(result)
-    }
-
-    const editEntry = (id) => {
-        const i = entries.findIndex((e) => e.id === id)
-        const entry = entries[i]
-
-        setEntryId(id)
-        setDescription(entry.description)
-        setValue(entry.value)
-        setIsExpense(entry.isExpense)
-
-        if (id) setIsOpen(true)
-    }
-
-    const addEntry = () => {
-        const result = entries.concat({
-            id: entries.length + 1,
-            description,
-            value,
-            isExpense,
-        })
-        setEntries(result)
-    }
-
-    const resetEntry = () => {
-        setDescription('')
-        setValue(0)
-        setIsExpense(true)
-    }
-
     return (
         <Container>
             <MainHeader title="Budget" />
@@ -91,57 +48,14 @@ const App = () => {
             />
 
             <MainHeader title="History" type="h3" />
-            <EntryLines
-                entries={entries}
-                deleteEntry={deleteEntry}
-                editEntry={editEntry}
-            />
+            <EntryLines entries={entries} />
 
             <MainHeader title="Add new transaction" type="h3" />
-            <NewEntryForm
-                addEntry={addEntry}
-                description={description}
-                value={value}
-                isExpense={isExpense}
-                setDescription={setDescription}
-                setValue={setValue}
-                setIsExpense={setIsExpense}
-            />
+            <NewEntryForm />
 
-            <ModalEdit
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-                addEntry={addEntry}
-                description={description}
-                value={value}
-                isExpense={isExpense}
-                setDescription={setDescription}
-                setValue={setValue}
-                setIsExpense={setIsExpense}
-            />
+            <ModalEdit isOpen={isOpen} {...entry} />
         </Container>
     )
 }
 
 export default App
-
-const initialEntries = [
-    {
-        id: 1,
-        description: 'Work income',
-        value: 3100.0,
-        isExpense: false,
-    },
-    {
-        id: 2,
-        description: 'Water bill',
-        value: 81.0,
-        isExpense: true,
-    },
-    {
-        id: 3,
-        description: 'Rent',
-        value: 850.0,
-        isExpense: true,
-    },
-]

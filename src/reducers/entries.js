@@ -1,11 +1,23 @@
+import {
+    ADD_ENTRY_TYPE,
+    UPDATE_ENTRY_TYPE,
+    REMOVE_ENTRY_TYPE,
+} from '../actions/entries'
+
 export const entriesReducers = (state = initialEntries, action) => {
     switch (action.type) {
-        case 'ADD_ENTRY': {
+        case ADD_ENTRY_TYPE: {
             const newEntries = state.concat({ ...action.payload })
             return newEntries
         }
-        case 'REMOVE_ENTRY': {
+        case REMOVE_ENTRY_TYPE: {
             const newEntries = state.filter((e) => e.id !== action.payload.id)
+            return newEntries
+        }
+        case UPDATE_ENTRY_TYPE: {
+            const newEntries = [...state]
+            const i = newEntries.findIndex((e) => e.id === action.payload.id)
+            newEntries[i] = { ...action.payload.entry }
             return newEntries
         }
         default:
