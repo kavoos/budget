@@ -77,3 +77,11 @@ https://www.inkoop.io/blog/setup-eslint-for-react-with-prettier-pre-commit-and-v
 ```
 npm install semantic-ui-react semantic-ui-css
 ```
+
+```
+npm install redux react-redux
+```
+
+```
+npm install -D redux-devtools
+```

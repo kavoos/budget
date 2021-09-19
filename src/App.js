@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Container } from 'semantic-ui-react'
-import './App.css'
-import 'semantic-ui-css/semantic.min.css'
 import { MainHeader } from './components/MainHeader'
 import { NewEntryForm } from './components/NewEntryForm'
 import { DisplayBalance } from './components/DisplayBalance'
 import { DisplayBalances } from './components/DisplayBalances'
 import { EntryLines } from './components/EntryLines'
 import { ModalEdit } from './components/ModalEdit'
+import './App.css'
+import 'semantic-ui-css/semantic.min.css'
 
 const App = () => {
     const [entries, setEntries] = useState(initialEntries)
