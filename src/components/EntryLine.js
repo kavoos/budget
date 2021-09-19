@@ -7,6 +7,7 @@ export const EntryLine = ({
     value,
     isExpense = false,
     deleteEntry,
+    editEntry,
 }) => {
     return (
         <Segment color={isExpense ? 'red' : 'green'}>
@@ -19,7 +20,11 @@ export const EntryLine = ({
                         €{value}
                     </Grid.Column>
                     <Grid.Column width={3}>
-                        <Icon name="edit" />
+                        <Icon
+                            name="edit"
+                            onClick={() => editEntry(id)}
+                            style={{ cursor: 'pointer' }}
+                        />
                         <Icon
                             name="trash"
                             onClick={() => deleteEntry(id)}
@@ -38,4 +43,5 @@ EntryLine.propTypes = {
     value: PropTypes.number,
     isExpense: PropTypes.bool,
     deleteEntry: PropTypes.func,
+    editEntry: PropTypes.func,
 }

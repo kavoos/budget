@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Container } from 'semantic-ui-react'
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
@@ -7,16 +7,48 @@ import { NewEntryForm } from './components/NewEntryForm'
 import { DisplayBalance } from './components/DisplayBalance'
 import { DisplayBalances } from './components/DisplayBalances'
 import { EntryLines } from './components/EntryLines'
+import { ModalEdit } from './components/ModalEdit'
 
 const App = () => {
     const [entries, setEntries] = useState(initialEntries)
+    const [description, setDescription] = useState('')
+    const [value, setValue] = useState(0)
+    const [isExpense, setIsExpense] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
+    const [entryId, setEntryId] = useState()
+
+    useEffect(() => {
+        if (!isOpen && entryId) {
+            const i = entries.findIndex((e) => e.id === entryId)
+            const newEntries = [...entries]
+
+            newEntries[i].description = description
+            newEntries[i].value = value
+            newEntries[i].isExpense = isExpense
+
+            setEntries(newEntries)
+            resetEntry()
+        }
+    }, [isOpen])
 
     const deleteEntry = (id) => {
         const result = entries.filter((e) => e.id !== id)
         setEntries(result)
     }
 
-    const addEntry = (description, value, isExpense) => {
+    const editEntry = (id) => {
+        const i = entries.findIndex((e) => e.id === id)
+        const entry = entries[i]
+
+        setEntryId(id)
+        setDescription(entry.description)
+        setValue(entry.value)
+        setIsExpense(entry.isExpense)
+
+        if (id) setIsOpen(true)
+    }
+
+    const addEntry = () => {
         const result = entries.concat({
             id: entries.length + 1,
             description,
@@ -24,6 +56,12 @@ const App = () => {
             isExpense,
         })
         setEntries(result)
+    }
+
+    const resetEntry = () => {
+        setDescription('')
+        setValue(0)
+        setIsExpense(true)
     }
 
     return (
@@ -37,10 +75,34 @@ const App = () => {
             <DisplayBalances />
 
             <MainHeader title="History" type="h3" />
-            <EntryLines entries={entries} deleteEntry={deleteEntry} />
+            <EntryLines
+                entries={entries}
+                deleteEntry={deleteEntry}
+                editEntry={editEntry}
+            />
 
             <MainHeader title="Add new transaction" type="h3" />
-            <NewEntryForm addEntry={addEntry} />
+            <NewEntryForm
+                addEntry={addEntry}
+                description={description}
+                value={value}
+                isExpense={isExpense}
+                setDescription={setDescription}
+                setValue={setValue}
+                setIsExpense={setIsExpense}
+            />
+
+            <ModalEdit
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                addEntry={addEntry}
+                description={description}
+                value={value}
+                isExpense={isExpense}
+                setDescription={setDescription}
+                setValue={setValue}
+                setIsExpense={setIsExpense}
+            />
         </Container>
     )
 }

@@ -1,29 +1,17 @@
 import PropTypes from 'prop-types'
 import { Button } from 'semantic-ui-react'
 
-export const ButtonSaveOrCancel = ({
-    addEntry,
-    description,
-    value,
-    isExpense,
-}) => {
+export const ButtonSaveOrCancel = ({ addEntry }) => {
     return (
-        <Button.Group style={{ marginTop: 20 }}>
-            <Button>Cancel</Button>
-            <Button.Or />
-            <Button
-                primary
-                onClick={() => addEntry(description, value, isExpense)}
-            >
+        <>
+            <Button style={{ marginRight: '.75em' }}>Cancel</Button>
+            <Button primary onClick={() => addEntry()}>
                 Save
             </Button>
-        </Button.Group>
+        </>
     )
 }
 
 ButtonSaveOrCancel.propTypes = {
-    description: PropTypes.string,
-    value: PropTypes.number,
-    isExpense: PropTypes.bool,
     addEntry: PropTypes.func,
 }
