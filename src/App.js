@@ -22,7 +22,7 @@ const App = () => {
     useEffect(() => {
         const i = entries.findIndex((e) => e.id === id)
         setEntry(entries[i])
-    }, [isOpen, id])
+    }, [isOpen, id, entries])
 
     useEffect(() => {
         let tIncomes = 0
