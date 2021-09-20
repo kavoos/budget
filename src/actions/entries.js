@@ -1,15 +1,17 @@
-export const ADD_ENTRY_TYPE = 'ADD_ENTRY'
-export const REMOVE_ENTRY_TYPE = 'REMOVE_ENTRY'
-export const UPDATE_ENTRY_TYPE = 'UPDATE_ENTRY'
+export const entryType = {
+    ADD: 'ADD_ENTRY',
+    REMOVE: 'REMOVE_ENTRY',
+    UPDATE: 'UPDATE_ENTRY',
+}
 
 export const addEntryAction = (payload) => {
-    return { type: ADD_ENTRY_TYPE, payload }
+    return { type: entryType.ADD, payload }
 }
 
 export const removeEntryAction = (id) => {
-    return { type: REMOVE_ENTRY_TYPE, payload: { id } }
+    return { type: entryType.REMOVE, payload: { id } }
 }
 
 export const updateEntryAction = (id, entry) => {
-    return { type: UPDATE_ENTRY_TYPE, payload: { id, entry } }
+    return { type: entryType.UPDATE, payload: { id, entry } }
 }

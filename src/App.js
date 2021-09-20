@@ -39,7 +39,7 @@ const App = () => {
     }, [entries])
 
     return (
-        <Container>
+        <Container style={{ marginTop: 16 }}>
             <MainHeader title="Budget" />
             <DisplayBalance size="small" label="Your balance:" value={total} />
             <DisplayBalances
