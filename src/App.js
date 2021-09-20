@@ -6,7 +6,8 @@ import { DisplayBalance } from './components/DisplayBalance'
 import { DisplayBalances } from './components/DisplayBalances'
 import { EntryLines } from './components/EntryLines'
 import { ModalEdit } from './components/ModalEdit'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllEntriesAction } from './actions/entries'
 import './App.css'
 import 'semantic-ui-css/semantic.min.css'
 
@@ -37,6 +38,11 @@ const App = () => {
         setTotalIncomes(tIncomes)
         setTotalExpenses(tExpenses)
     }, [entries])
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getAllEntriesAction())
+    }, [])
 
     return (
         <Container style={{ marginTop: 16 }}>

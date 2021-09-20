@@ -36,7 +36,7 @@ export const EntryLine = ({ id, description, value, isExpense = false }) => {
 }
 
 EntryLine.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     description: PropTypes.string,
     value: PropTypes.number,
     isExpense: PropTypes.bool,

@@ -106,3 +106,7 @@ npm install -D concurrently
 ```
 npm install redux-saga
 ```
+
+```
+npm install axios
+```

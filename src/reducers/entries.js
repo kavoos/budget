@@ -2,6 +2,9 @@ import { entryType } from '../actions/entries'
 
 export const entriesReducers = (state = initialEntries, action) => {
     switch (action.type) {
+        case entryType.POPULATE: {
+            return action.payload
+        }
         case entryType.ADD: {
             const newEntries = state.concat({ ...action.payload })
             return newEntries
@@ -21,23 +24,4 @@ export const entriesReducers = (state = initialEntries, action) => {
     }
 }
 
-const initialEntries = [
-    {
-        id: 1,
-        description: 'Work income',
-        value: 3100.0,
-        isExpense: false,
-    },
-    {
-        id: 2,
-        description: 'Water bill',
-        value: 81.0,
-        isExpense: true,
-    },
-    {
-        id: 3,
-        description: 'Rent',
-        value: 850.0,
-        isExpense: true,
-    },
-]
+const initialEntries = []
