@@ -1,22 +1,33 @@
 {
-  "entries": [
-    {
-      "id": "18d6e155-dbe3-420c-bbb3-30a9e6f696fc",
-      "description": "Work income",
-      "value": 3100,
-      "isExpense": false
-    },
-    {
-      "id": "411e76ac-ad5a-4d54-86c2-30c3afcbb040",
-      "description": "Water bill",
-      "value": 81,
-      "isExpense": true
-    },
-    {
-      "id": "3c0034bd-e25e-48db-baf0-330658debc82",
-      "description": "Rent",
-      "value": 850,
-      "isExpense": true
-    }
-  ]
+    "entries": [
+        {
+            "id": "18d6e155-dbe3-420c-bbb3-30a9e6f696fc",
+            "description": "Work income"
+        },
+        {
+            "id": "411e76ac-ad5a-4d54-86c2-30c3afcbb040",
+            "description": "Water bill"
+        },
+        {
+            "id": "3c0034bd-e25e-48db-baf0-330658debc82",
+            "description": "Rent"
+        }
+    ],
+    "values": [
+        {
+            "id": "18d6e155-dbe3-420c-bbb3-30a9e6f696fc",
+            "value": 3100,
+            "isExpense": false
+        },
+        {
+            "id": "411e76ac-ad5a-4d54-86c2-30c3afcbb040",
+            "value": 81,
+            "isExpense": true
+        },
+        {
+            "id": "3c0034bd-e25e-48db-baf0-330658debc82",
+            "value": 850,
+            "isExpense": true
+        }
+    ]
 }
