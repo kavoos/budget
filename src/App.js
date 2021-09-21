@@ -42,7 +42,7 @@ const App = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getAllEntriesAction())
-    }, [])
+    }, [dispatch])
 
     return (
         <Container style={{ marginTop: 16 }}>
