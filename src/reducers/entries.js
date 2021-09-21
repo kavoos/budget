@@ -14,7 +14,7 @@ export const entriesReducers = (state = initialEntries, action) => {
             return newEntries
         }
         case entryType.POPULATE_DETAILS:
-        case entryType.UPDATE: {
+        case entryType.UPDATE_RESULT: {
             const newEntries = [...state]
             const i = newEntries.findIndex((e) => e.id === action.payload.id)
             newEntries[i] = { ...newEntries[i], ...action.payload.entry }
