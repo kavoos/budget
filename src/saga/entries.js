@@ -6,7 +6,7 @@ import {
     populateEntryDetailsAction,
 } from '../actions/entries'
 
-export function* getAllEntries() {
+export function* getAllEntriesSaga() {
     yield take(entryType.GET_ALL)
     const { data } = yield call(axios, 'http://localhost:3001/entries')
     yield put(populateEntriesAction(data))
@@ -17,7 +17,7 @@ function* getEntryDetails(id) {
     yield put(populateEntryDetailsAction(id, data))
 }
 
-export function* getAllEntriesDetails() {
+export function* getAllEntriesDetailsSaga() {
     const { payload } = yield take(entryType.POPULATE)
     for (let i = 0; i < payload.length; i++) {
         const e = payload[i]
