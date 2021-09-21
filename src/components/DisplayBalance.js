@@ -11,7 +11,7 @@ export const DisplayBalance = ({
     return (
         <Statistic size={size} color={color} style={{ textAlign }}>
             <Statistic.Label>{label}</Statistic.Label>
-            <Statistic.Value>€{value}</Statistic.Value>
+            <Statistic.Value>€{value.toFixed(2)}</Statistic.Value>
         </Statistic>
     )
 }

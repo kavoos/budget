@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types'
 import { Button } from 'semantic-ui-react'
 
-export const ButtonSaveOrCancel = ({ addEntry }) => {
+export const ButtonSaveOrCancel = ({ addEntry, resetEntry }) => {
     return (
         <>
-            <Button style={{ marginRight: '.75em' }}>Cancel</Button>
+            <Button
+                onClick={() => resetEntry()}
+                style={{ marginRight: '.75em' }}
+            >
+                Reset
+            </Button>
             <Button primary onClick={() => addEntry()}>
                 Save
             </Button>
@@ -14,4 +19,5 @@ export const ButtonSaveOrCancel = ({ addEntry }) => {
 
 ButtonSaveOrCancel.propTypes = {
     addEntry: PropTypes.func,
+    resetEntry: PropTypes.func,
 }

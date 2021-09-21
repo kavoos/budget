@@ -12,6 +12,7 @@ export const NewEntryForm = () => {
         setValue,
         setIsExpense,
         addEntry,
+        resetEntry,
     } = useEntryDetails()
 
     return (
@@ -24,7 +25,7 @@ export const NewEntryForm = () => {
                 setValue={setValue}
                 setIsExpense={setIsExpense}
             />
-            <ButtonSaveOrCancel addEntry={addEntry} />
+            <ButtonSaveOrCancel addEntry={addEntry} resetEntry={resetEntry} />
         </Form>
     )
 }

@@ -24,16 +24,18 @@ export const useEntryDetails = (desc = '', val = 0, isExp = true) => {
     }
 
     const addEntry = () => {
-        dispatch(
-            addEntryAction({
-                id: uuid(),
-                description,
-                value,
-                isExpense,
-            })
-        )
+        if (description && value) {
+            dispatch(
+                addEntryAction({
+                    id: uuid(),
+                    description,
+                    value,
+                    isExpense,
+                })
+            )
 
-        resetEntry()
+            resetEntry()
+        }
     }
 
     const resetEntry = () => {
@@ -51,5 +53,6 @@ export const useEntryDetails = (desc = '', val = 0, isExp = true) => {
         setIsExpense,
         addEntry,
         updateEntry,
+        resetEntry,
     }
 }

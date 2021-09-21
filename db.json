@@ -9,8 +9,16 @@
       "description": "Water bill"
     },
     {
-      "id": "3c0034bd-e25e-48db-baf0-330658debc82",
-      "description": "Rent"
+      "description": "Rent",
+      "id": "3c0034bd-e25e-48db-baf0-330658debc82"
+    },
+    {
+      "id": "9bda9277-328e-4e29-8622-b981e32dabff",
+      "description": "Bread"
+    },
+    {
+      "description": "Bonus",
+      "id": "ddae4af8-fe4c-4e6e-9803-73d10823e0d3"
     }
   ],
   "values": [
@@ -25,9 +33,19 @@
       "isExpense": true
     },
     {
-      "id": "3c0034bd-e25e-48db-baf0-330658debc82",
       "value": 850,
+      "isExpense": true,
+      "id": "3c0034bd-e25e-48db-baf0-330658debc82"
+    },
+    {
+      "id": "9bda9277-328e-4e29-8622-b981e32dabff",
+      "value": 5.04,
       "isExpense": true
+    },
+    {
+      "value": 120.34,
+      "isExpense": false,
+      "id": "ddae4af8-fe4c-4e6e-9803-73d10823e0d3"
     }
   ]
 }
