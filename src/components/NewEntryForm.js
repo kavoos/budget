@@ -15,7 +15,7 @@ export const NewEntryForm = () => {
     } = useEntryDetails()
 
     return (
-        <Form unstackable>
+        <Form>
             <EntryForm
                 description={description}
                 value={value}

@@ -10,27 +10,32 @@ export const EntryForm = ({
     setIsExpense,
 }) => {
     return (
-        <>
-            <Form.Group>
-                <Form.Input
-                    icon="tag"
-                    width={12}
-                    label="Description"
-                    placeholder="New item"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-                <Form.Input
-                    icon="euro"
-                    iconPosition="left"
-                    width={4}
-                    label="Value"
-                    placeholder="100"
-                    value={value}
-                    onChange={(e) => setValue(+e.target.value)}
-                />
-            </Form.Group>
-            <Segment compact>
+        <Segment.Group>
+            <Segment>
+                <Form.Group>
+                    <Form.Input
+                        icon="tag"
+                        width={12}
+                        mobile={16}
+                        label="Description"
+                        placeholder="New item"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                    <Form.Input
+                        icon="euro"
+                        iconPosition="left"
+                        type="number"
+                        width={4}
+                        mobile={16}
+                        label="Value"
+                        placeholder="0"
+                        value={value}
+                        onChange={(e) => setValue(+e.target.value)}
+                    />
+                </Form.Group>
+            </Segment>
+            <Segment>
                 <Checkbox
                     label="Is expense"
                     checked={isExpense}
@@ -38,7 +43,7 @@ export const EntryForm = ({
                     onChange={() => setIsExpense((oldState) => !oldState)}
                 />
             </Segment>
-        </>
+        </Segment.Group>
     )
 }
 

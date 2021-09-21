@@ -22,7 +22,7 @@ export const ModalEdit = (props) => {
         <Modal open={props.isOpen}>
             <Modal.Header>Edit entry</Modal.Header>
             <Modal.Content>
-                <Form unstackable>
+                <Form>
                     <EntryForm
                         description={description}
                         value={value}
