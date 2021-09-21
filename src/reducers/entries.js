@@ -13,10 +13,11 @@ export const entriesReducers = (state = initialEntries, action) => {
             const newEntries = state.filter((e) => e.id !== action.payload.id)
             return newEntries
         }
+        case entryType.POPULATE_DETAILS:
         case entryType.UPDATE: {
             const newEntries = [...state]
             const i = newEntries.findIndex((e) => e.id === action.payload.id)
-            newEntries[i] = { ...action.payload.entry }
+            newEntries[i] = { ...newEntries[i], ...action.payload.entry }
             return newEntries
         }
         default:

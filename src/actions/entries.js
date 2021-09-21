@@ -3,7 +3,8 @@ export const entryType = {
     REMOVE: 'REMOVE_ENTRY',
     UPDATE: 'UPDATE_ENTRY',
     GET_ALL: 'GET_ENTRIES',
-    POPULATE: 'POPULATE_ENTIRES',
+    POPULATE: 'POPULATE_ENTRIES',
+    POPULATE_DETAILS: 'POPULATE_ENTRY_DETAIL',
 }
 
 export const addEntryAction = (payload) => {
@@ -24,4 +25,8 @@ export const getAllEntriesAction = () => {
 
 export const populateEntriesAction = (entries) => {
     return { type: entryType.POPULATE, payload: entries }
+}
+
+export const populateEntryDetailsAction = (id, entry) => {
+    return { type: entryType.POPULATE_DETAILS, payload: { id, entry } }
 }
