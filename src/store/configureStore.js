@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { entriesReducers } from '../reducers/entries'
 import { modalsReducers } from '../reducers/modals'
 import createSagaMiddleware from '@redux-saga/core'
-import { initSagas } from '../saga'
+import { initSagas } from '../sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 const middlewares = [sagaMiddleware]
